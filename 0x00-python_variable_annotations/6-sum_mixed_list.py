@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """annotation union list"""
 from typing import List, Union
 
