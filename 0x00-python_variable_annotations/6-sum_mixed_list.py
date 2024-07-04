@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-""""""
-def sum_mixed_list(mxd_lst: list[float, int]) -> float:
-    """"""
+"""annotation union list"""
+from typing import List, Union
+
+Vector = List[Union[float, int]]
+
+
+def sum_mixed_list(mxd_lst: Vector) -> float:
+    """return float sum"""
     return sum(mxd_lst)
