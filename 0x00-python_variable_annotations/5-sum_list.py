@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""return float the sum of the list"""
+"""
+return float the sum of the list
+"""
 
 
 def sum_list(input_list: list) -> float:
