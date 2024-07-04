@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""hello string"""
+"""typing list"""
+from typing import List
 
 
-type Vector = list[float]
+Vector = List[float]
+
 
 def sum_list(input_list: Vector) -> float:
     """with anotaion return the sum of list"""
