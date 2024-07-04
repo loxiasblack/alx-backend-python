@@ -2,7 +2,7 @@
 """annotation union list"""
 from typing import List, Union
 
-Vector = List[Union[float, int]]
+Vector = List[Union[int, float]]
 
 
 def sum_mixed_list(mxd_lst: Vector) -> float:
