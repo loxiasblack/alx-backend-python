@@ -4,9 +4,9 @@ return float the sum of the list
 """
 
 
-def sum_list(input_list: list) -> float:
+def sum_list(input_list: list[float]) -> float:
     """with anotaion return the sum of list"""
-    sum = 0
+    total = 0.0
     for i in input_list:
-        sum += i
-    return sum
+        total += i
+    return total
