@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""asyncio to return a random sleep"""
+""" The basics of async """
 import asyncio
 import random
 
 
-async def wait_random(max_delay=10):
+async def wait_random(max_delay: int = 10) -> float:
+    """asynchronous coroutine
+
+    Args:
+        max_delay (int): max delay of waiting
+
+    Returns:
+        float: float number
     """
-    asynochronous coroutine
-    Args: max_delay (int): max of waiting
-    Returns: float number
-    """
-    delay = random.uniform(0, max_delay)
-    await asyncio.sleep(delay)
-    return delay
+    actual_delay = random.uniform(0, max_delay)
+    await asyncio.sleep(actual_delay)
+    return actual_delay
