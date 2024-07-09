@@ -4,6 +4,7 @@ import random
 import asyncio
 from typing import Generator
 
+
 async def async_generator() -> Generator[float, None, None]:
     """yield numbers between 0"""
     for _ in range(10):
