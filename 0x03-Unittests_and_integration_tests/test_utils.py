@@ -43,21 +43,24 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """Class that tests memoize decorator"""
+    """ class that test memoize decorator"""
 
-    @patch('__main__.TestClass.a_method', return_value=42)
-    def test_memoize(self, mock_method):
-        """Test memoize method to check if the property when called twice
-        the method is called only once"""
+    def test_memoize(self):
+        """ test memoize method check if the proprety when called twice
+        the method called once"""
+        class TestClass:
+
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
         new_obj = TestClass()
-
-        # Call a_property twice
-        result1 = new_obj.a_property
-        result2 = new_obj.a_property
-
-        # Check that the results are correct
-        self.assertEqual(result1, 42)
-        self.assertEqual(result2, 42)
-
-        # Verify that a_method was called only once
-        mock_method.assert_called_once()
+        with patch.object(new_obj, 'a_method', return_value=42) as mock_method:
+            result1 = new_obj.a_property
+            result2 = new_obj.a_property
+            self.assertAlmostEqual(result1, 42)
+            self.assertAlmostEqual(result2, 42)
+            mock_method.assert_called_once()
