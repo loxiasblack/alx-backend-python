@@ -2,6 +2,7 @@
 """ test file for fonctions already created """
 import unittest
 import utils
+from utils import memoize
 from parameterized import parameterized
 from unittest.mock import patch, Mock
 import requests
@@ -39,3 +40,29 @@ class TestGetJson(unittest.TestCase):
         data = utils.get_json(test_url)
         self.assertEqual(data, test_payload)
         mock_get.assert_called_once_with(test_url)
+
+
+class TestMemoize(unittest.TestCase):
+    """ class that test memoize decorator"""
+    def test_memoize(self):
+        """ test memoize method check if the proprety when called twice
+        the method called once"""
+        class TestClass:
+
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        new_obj = TestClass()
+
+        with patch.object(new_obj, 'a_method', return_value=42) as mock_method:
+            result1 = new_obj.a_property
+            result2 = new_obj.a_property
+
+            self.assertAlmostEqual(result1, 42)
+            self.assertAlmostEqual(result2, 42)
+
+            mock_method.assert_called_once()
