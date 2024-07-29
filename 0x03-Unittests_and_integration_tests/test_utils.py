@@ -49,12 +49,14 @@ class TestMemoize(unittest.TestCase):
         """ test memoize method check if the proprety when called twice
         the method called once"""
         class TestClass:
-
+            """ class test """
             def a_method(self):
+                """ return 42 """
                 return 42
 
             @memoize
             def a_property(self):
+                """ return a_method """
                 return self.a_method()
 
         new_obj = TestClass()
