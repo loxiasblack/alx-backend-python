@@ -4,8 +4,7 @@ import unittest
 import utils
 from utils import memoize
 from parameterized import parameterized
-from unittest.mock import patch, Mock
-import requests
+from unittest.mock import patch
 
 
 class TestAccessNestedMap(unittest.TestCase):
